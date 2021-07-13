@@ -1,21 +1,7 @@
-import { css, jsx } from '@emotion/react';
 import styled from '@emotion/styled';
-import { mq } from '../styles/constant';
+import { mq } from '../../commons/styles/constant';
 
-const itemStyle = css`
-  background-color: #ddd;
-  padding: 20px;
-  border-radius: 10%;
-`;
-
-const Item = ({ imageUrl, name, owned, onClick }) => (
-  <div css={itemStyle}>
-    <img src={imageUrl} />
-    <p>{name}</p>
-  </div>
-);
-
-const List = styled.div`
+const PokemonList = styled.div`
   display: grid;
   gap: 0.25rem;
   ${mq[0]} {
@@ -35,4 +21,4 @@ const List = styled.div`
   }
 `;
 
-export { Item, List };
+export default PokemonList;

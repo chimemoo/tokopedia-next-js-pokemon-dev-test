@@ -1,11 +1,14 @@
-import { GlobalStyles } from '../styles/global';
+import { GlobalStyles } from '../commons/styles/global';
+import ContextProvider from '../commons/context';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <GlobalStyles />
-      <Component {...pageProps} />
-    </>
+    <ContextProvider>
+      <div>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </div>
+    </ContextProvider>
   );
 }
 
