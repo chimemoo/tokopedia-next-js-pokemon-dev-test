@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled from '@emotion/styled';
-import { mq } from '../../../commons/styles/constant';
+import { mq } from '../../commons/styles/constant';
 
 const Container = styled.div`
   ${mq[0]} {

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import client from '../../commons/graphql/client';
 import { GET_POKEMON } from '../../commons/graphql/query';
-import PokemonCarousel from '../../components/pokemon/[name]/PokemonCarousel';
+import PokemonCarousel from '../../components/pokemon/PokemonCarousel';
 
 export default function Pokemon(props) {
   const {

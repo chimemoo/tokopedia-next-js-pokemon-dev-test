@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { PokemonList, PokemonItem } from '../components/shared/';
+import { PokemonList, PokemonItem } from '../components/pokemon';
 import client from '../commons/graphql/client';
 import { GET_POKEMONS } from '../commons/graphql/query';
 
