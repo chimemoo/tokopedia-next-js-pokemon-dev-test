@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useContext, useState } from 'react';
 import client from '../../commons/graphql/client';
 import { Grid, Column } from '../../components/ui/Grid';
@@ -24,7 +23,7 @@ export default function Pokemon(props) {
   const { back_default, back_shiny, front_default, front_shiny } = sprites ?? {};
   const images = [back_default, back_shiny, front_default, front_shiny];
   const [isCanAdded, setIsCanAdded] = useState(false);
-  const { value: pokemonAlias, bind, reset, error, isValid, validate } = useInput('');
+  const { value: pokemonAlias, bind, error, isValid, validate } = useInput('');
   const { open } = useContext(ToastContext);
   const { save, find } = useContext(PokemonContext);
 

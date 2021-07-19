@@ -1,9 +1,5 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import { PokemonOwnedItem } from '../../components/pokemon';
 import { Grid } from '../../components/ui/Grid';
-import client from '../../commons/graphql/client';
-import { GET_POKEMONS } from '../../commons/graphql/query';
 import { useContext } from 'react';
 import { PokemonContext } from '../../commons/context/pokemon.context';
 import Empty from '../../components/ui/Empty';

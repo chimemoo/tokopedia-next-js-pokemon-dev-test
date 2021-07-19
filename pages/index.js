@@ -1,5 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import { useLazyQuery } from '@apollo/client';
 import { PokemonItem } from '../components/pokemon';
 import { Grid } from '../components/ui/Grid';
@@ -63,7 +61,7 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const { data } = await client.query({
     query: GET_POKEMONS,
     variables: {
