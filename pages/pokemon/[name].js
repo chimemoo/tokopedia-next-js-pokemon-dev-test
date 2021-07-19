@@ -14,6 +14,7 @@ import * as Button from '../../components/ui/Button';
 import { ToastContext } from '../../commons/context/toast.context';
 import { PokemonContext } from '../../commons/context/pokemon.context';
 import Input from '../../components/ui/Input';
+import SEO from '../../components/commons/Seo';
 import useInput from '../../commons/hooks/use-input';
 
 export default function Pokemon(props) {
@@ -63,6 +64,10 @@ export default function Pokemon(props) {
 
   return (
     <div>
+      <SEO
+        title={`Catch ${name} in pokedex`}
+        desc={`Pokemon ${name} is the best pokemon, with ${base_experience} Base experience`}
+      />
       <Block>
         <Grid xs={1} md={3} lg={4}>
           <PokemonCarousel imageList={images} />
