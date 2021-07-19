@@ -1,18 +1,18 @@
+import { useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import { PokemonItem } from '../components/pokemon';
 import { Grid } from '../components/ui/Grid';
 import client from '../commons/graphql/client';
-import { GET_POKEMONS } from '../commons/graphql/query';
-import { useEffect, useState } from 'react';
 import SEO from '../components/commons/Seo';
+import PokemonsQuery from '../commons/graphql/pokemons.graphql';
 
 const Shimmer = dynamic(() => import('../components/ui/Shimmer'));
+const PokemonItem = dynamic(() => import('../components/pokemon/PokemonItem.js'));
 
 export default function Home(props) {
   const [pokemons, setPokemons] = useState(props.pokemons);
-  const [getPokemon, { loading, data, error }] = useLazyQuery(GET_POKEMONS);
+  const [getPokemon, { loading, data, error }] = useLazyQuery(PokemonsQuery);
   const [page, setPage] = useState(20);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ export default function Home(props) {
 
 export async function getServerSideProps() {
   const { data } = await client.query({
-    query: GET_POKEMONS,
+    query: PokemonsQuery,
     variables: {
       offset: 0,
       limit: 20,

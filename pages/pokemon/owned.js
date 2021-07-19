@@ -1,10 +1,12 @@
-import { PokemonOwnedItem } from '../../components/pokemon';
+import dynamic from 'next/dynamic';
 import { Grid } from '../../components/ui/Grid';
 import { useContext } from 'react';
 import { PokemonContext } from '../../commons/context/pokemon.context';
-import Empty from '../../components/ui/Empty';
 import Block from '../../components/ui/Block';
 import SEO from '../../components/commons/Seo';
+
+const Empty = dynamic(() => import('../../components/ui/Empty'));
+const PokemonOwnedItem = dynamic(() => import('../../components/pokemon/PokemonOwnedItem'));
 
 export default function Owned() {
   const { pokemons = {} } = useContext(PokemonContext);

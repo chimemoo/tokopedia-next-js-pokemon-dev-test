@@ -4,8 +4,8 @@ import { useContext } from 'react';
 import { PokemonContext } from '../../commons/context/pokemon.context';
 import { color, fontSize, mq } from '../../commons/styles/constant';
 
-const PokemonItem = ({ id, image, name }) => {
-  const { count } = useContext(PokemonContext);
+const PokemonOwnedItem = ({ id, image, name, name_alias }) => {
+  const { count, remove } = useContext(PokemonContext);
 
   return (
     <div css={itemStyle}>
@@ -16,18 +16,31 @@ const PokemonItem = ({ id, image, name }) => {
             cursor: pointer;
           `}
         >
-          <p css={pokemonItemName}>{name}</p>
+          <p css={pokemonItemName}>
+            {name_alias} / {name}
+          </p>
           <p css={pokemonOwnedCount}>
             {count(id)} <span css={pokemonOwnedText}>Owned</span>
           </p>
           <div css={imageContentStyle}>
-            <img loading="lazy" css={imageStyle} src={image} />
+            <img css={imageStyle} src={image} />
           </div>
         </a>
       </Link>
+      <button css={deleteStyle} onClick={() => remove(id, name_alias)}>
+        <img src="/delete.svg" css={deleteStyle} />
+      </button>
     </div>
   );
 };
+
+const deleteStyle = css`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 25px;
+`;
 
 const itemStyle = css`
   background-color: ${color.primary};
@@ -93,4 +106,4 @@ const pokemonOwnedText = css`
   font-family: font-medium;
 `;
 
-export default PokemonItem;
+export default PokemonOwnedItem;

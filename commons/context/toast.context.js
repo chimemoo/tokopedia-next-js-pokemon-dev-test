@@ -1,5 +1,6 @@
+import dynamic from 'next/dynamic';
 import { useEffect, useState, createContext } from 'react';
-import Toast from '../../components/ui/Toast';
+const Toast = dynamic(() => import('../../components/ui/Toast'));
 
 export const ToastContext = createContext({
   open: (text, type) => {},

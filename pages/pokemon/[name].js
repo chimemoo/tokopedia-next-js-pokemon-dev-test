@@ -1,7 +1,8 @@
 import { useContext, useState } from 'react';
+import dynamic from 'next/dynamic';
 import client from '../../commons/graphql/client';
 import { Grid, Column } from '../../components/ui/Grid';
-import { GET_POKEMON } from '../../commons/graphql/query';
+import PokemonQuery from '../../commons/graphql/pokemon.graphql';
 import { ToastContext } from '../../commons/context/toast.context';
 import { PokemonContext } from '../../commons/context/pokemon.context';
 import PokemonCarousel from '../../components/pokemon/PokemonCarousel';
@@ -10,13 +11,13 @@ import Block from '../../components/ui/Block';
 import Flex from '../../components/ui/Flex';
 import Col from '../../components/ui/Col';
 import Item from '../../components/ui/Item';
-import Error from '../../components/ui/Error';
 import * as Button from '../../components/ui/Button';
 import SEO from '../../components/commons/Seo';
 import useInput from '../../commons/hooks/use-input';
-import dynamic from 'next/dynamic';
+import Head from 'next/head';
 
 const Input = dynamic(() => import('../../components/ui/Input'));
+const Error = dynamic(() => import('../../components/ui/Error'));
 
 export default function Pokemon(props) {
   const {
@@ -65,6 +66,9 @@ export default function Pokemon(props) {
 
   return (
     <div>
+      <Head>
+        <link rel="prefetch" href={images[0]} />
+      </Head>
       <SEO
         title={`Catch ${name} in pokedex`}
         desc={`Pokemon ${name} is the best pokemon, with ${base_experience} Base experience`}
@@ -148,7 +152,7 @@ export async function getServerSideProps(context) {
   const {
     data: { pokemon },
   } = await client.query({
-    query: GET_POKEMON,
+    query: PokemonQuery,
     variables: {
       name,
     },
