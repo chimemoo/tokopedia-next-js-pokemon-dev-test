@@ -10,7 +10,7 @@ import SEO from '../components/commons/Seo';
 export default function Home(props) {
   const [pokemons, setPokemons] = useState(props.pokemons);
   const [getPokemon, { loading, data, error }] = useLazyQuery(GET_POKEMONS);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(20);
 
   useEffect(() => {
     getPokemon({ variables: { limit: 20, offset: page } });
@@ -30,7 +30,7 @@ export default function Home(props) {
 
     if (scrollTop + clientHeight >= scrollHeight - 5) {
       if (!loading && !error) {
-        setPage(prevState => prevState + 10);
+        setPage(prevState => prevState + 20);
       }
     }
   };
