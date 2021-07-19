@@ -13,7 +13,7 @@ const PokemonCarousel = ({ imageList = [] }) => {
 
   const renderImageList = imageList.map((image, i) => (
     <div key={i} css={thumbnailItemStyle}>
-      <ThumbnalImage src={image} width={60} height={60} onClick={() => handleSelectThumbnail(i)} />
+      <ThumbnalImage src={image} alt="carousel" width={60} height={60} onClick={() => handleSelectThumbnail(i)} />
       <div css={i === showedPokemon ? activeThumbnail : noActiveThumbnail} />
     </div>
   ));
@@ -21,7 +21,7 @@ const PokemonCarousel = ({ imageList = [] }) => {
   return (
     <div>
       <Container>
-        <Image src={imageList[showedPokemon]} objectFit="contain" layout="fill" />
+        <Image src={imageList[showedPokemon]} objectFit="contain" layout="fill" alt="main images" />
       </Container>
       <div css={thumbnailStyle}>{renderImageList}</div>
     </div>

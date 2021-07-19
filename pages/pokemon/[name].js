@@ -16,8 +16,8 @@ import SEO from '../../components/commons/Seo';
 import useInput from '../../commons/hooks/use-input';
 import Head from 'next/head';
 
-const Input = dynamic(() => import('../../components/ui/Input'));
-const Error = dynamic(() => import('../../components/ui/Error'));
+const Input = dynamic(() => import('../../components/ui/Input'), { ssr: false });
+const Error = dynamic(() => import('../../components/ui/Error'), { ssr: false });
 
 export default function Pokemon(props) {
   const {

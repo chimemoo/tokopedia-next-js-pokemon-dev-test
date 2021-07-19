@@ -21,7 +21,7 @@ const PokemonItem = ({ id, image, name }) => {
             {count(id)} <span css={pokemonOwnedText}>Owned</span>
           </p>
           <div css={imageContentStyle}>
-            <img loading="lazy" css={imageStyle} src={image} />
+            <img loading="lazy" css={imageStyle} src={image} alt={`Pokemon ${name}`} />
           </div>
         </a>
       </Link>

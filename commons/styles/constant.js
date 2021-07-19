@@ -7,9 +7,9 @@ export const mq = {
   xl: `@media (min-width: 1200px)`,
 };
 export const color = {
-  primary: '#548CA8',
-  secondary: '#476072',
-  tint: '#334257',
+  primary: '#141E61',
+  secondary: '#787A91',
+  tint: '#EEEEEE',
   white: '#FFF',
   danger: '#FF0000',
 };

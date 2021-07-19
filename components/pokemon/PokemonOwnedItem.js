@@ -23,7 +23,7 @@ const PokemonOwnedItem = ({ id, image, name, name_alias }) => {
             {count(id)} <span css={pokemonOwnedText}>Owned</span>
           </p>
           <div css={imageContentStyle}>
-            <img css={imageStyle} src={image} />
+            <img loading="lazy" css={imageStyle} src={image} alt={`Pokemon ${name}`} />
           </div>
         </a>
       </Link>

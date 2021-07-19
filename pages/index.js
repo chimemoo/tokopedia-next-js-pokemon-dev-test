@@ -6,9 +6,10 @@ import { Grid } from '../components/ui/Grid';
 import client from '../commons/graphql/client';
 import SEO from '../components/commons/Seo';
 import PokemonsQuery from '../commons/graphql/pokemons.graphql';
+import debounce from '../commons/utils/debounce';
 
-const Shimmer = dynamic(() => import('../components/ui/Shimmer'));
-const PokemonItem = dynamic(() => import('../components/pokemon/PokemonItem.js'));
+const Shimmer = dynamic(() => import('../components/ui/Shimmer'), { ssr: false });
+const PokemonItem = dynamic(() => import('../components/pokemon/PokemonItem.js'), { ssr: false });
 
 export default function Home(props) {
   const [pokemons, setPokemons] = useState(props.pokemons);
@@ -28,7 +29,7 @@ export default function Home(props) {
     }
   }, [data]);
 
-  const scrollListener = () => {
+  const scrollListener = debounce(() => {
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
     if (scrollTop + clientHeight >= scrollHeight - 5) {
@@ -36,7 +37,7 @@ export default function Home(props) {
         setPage(prevState => prevState + 20);
       }
     }
-  };
+  }, 500);
 
   useEffect(() => {
     window.addEventListener('scroll', scrollListener, {
