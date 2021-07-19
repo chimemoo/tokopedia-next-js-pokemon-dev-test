@@ -7,7 +7,7 @@ class MyDocument extends Document {
   }
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link rel="preload" crossOrigin="anonymous" as="font" href="/assets/fonts/Poppins/Poppins-Medium.ttf" />
           <link rel="preload" crossOrigin="anonymous" as="font" href="/assets/fonts/Poppins/Poppins-Bold.ttf" />
