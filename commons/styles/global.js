@@ -7,17 +7,20 @@ export const GlobalStyles = () => (
     styles={css`
       @font-face {
         font-family: 'font-medium';
-        src: url(/assets/fonts/Poppins/Poppins-Medium.ttf);
+        src: local('font-light') url(/assets/fonts/Poppins/Poppins-Medium.ttf) format('truetype');
+        font-display: swap;
       }
 
       @font-face {
         font-family: 'font-bold';
-        src: url(/assets/fonts/Poppins/Poppins-Bold.ttf);
+        src: local('font-light') url(/assets/fonts/Poppins/Poppins-Bold.ttf) format('truetype');
+        font-display: swap;
       }
 
       @font-face {
         font-family: 'font-light';
-        src: url(/assets/fonts/Poppins/Poppins-Light.ttf);
+        src: local('font-light') url(/assets/fonts/Poppins/Poppins-Light.ttf) format('truetype');
+        font-display: swap;
       }
 
       body {
