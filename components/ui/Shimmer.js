@@ -5,7 +5,7 @@ const Shimmer = ({ length = 6 }) => {
   return (
     <>
       {new Array(length).fill(0).map((_, i) => (
-        <div key={i} css={itemStyle}></div>
+        <div role="listitem" key={i} css={itemStyle}></div>
       ))}
     </>
   );
