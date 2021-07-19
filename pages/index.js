@@ -13,7 +13,6 @@ export default function Home(props) {
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    console.log(page);
     getPokemon({ variables: { limit: 20, offset: page } });
   }, [page]);
 
@@ -46,9 +45,7 @@ export default function Home(props) {
     };
   }, []);
 
-  const renderPokemonList = pokemons.map((pokemon, i) => (
-    <PokemonItem key={i} {...pokemon} onClick={() => console.log('test')} />
-  ));
+  const renderPokemonList = pokemons.map((pokemon, i) => <PokemonItem key={i} {...pokemon} />);
 
   return (
     <div>
