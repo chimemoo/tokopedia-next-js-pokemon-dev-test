@@ -36,6 +36,14 @@ export const GlobalStyles = () => (
         padding: 0;
         margin: 0;
       }
+
+      button {
+        background: transparent;
+        box-shadow: 0px 0px 0px transparent;
+        border: 0px solid transparent;
+        text-shadow: 0px 0px 0px transparent;
+        cursor: pointer;
+      }
     `}
   />
 );

@@ -8,39 +8,64 @@ const PokemonItem = ({ id, image, name }) => {
   const { count } = useContext(PokemonContext);
 
   return (
-    <Link href={`/pokemon/${name}`}>
-      <div css={itemStyle}>
-        <p css={pokemonItemName}>{name}</p>
-        <p css={pokemonOwnedCount}>
-          {count(id)} <span css={pokemonOwnedText}>Owned</span>
-        </p>
-        <div css={imageContentStyle}>
-          <img css={imageStyle} src={image} />
-        </div>
-      </div>
-    </Link>
+    <div css={itemStyle}>
+      <Link href={`/pokemon/${name}`}>
+        <a
+          css={css`
+            text-decoration: none;
+            cursor: pointer;
+          `}
+        >
+          <p css={pokemonItemName}>{name}</p>
+          <p css={pokemonOwnedCount}>
+            {count(id)} <span css={pokemonOwnedText}>Owned</span>
+          </p>
+          <div css={imageContentStyle}>
+            <img css={imageStyle} src={image} />
+          </div>
+        </a>
+      </Link>
+    </div>
   );
 };
 
 const PokemonOwnedItem = ({ id, image, name, name_alias }) => {
-  const { count } = useContext(PokemonContext);
+  const { count, remove } = useContext(PokemonContext);
 
   return (
-    <Link href={`/pokemon/${name}`}>
-      <div css={itemStyle}>
-        <p css={pokemonItemName}>
-          {name_alias} / {name}
-        </p>
-        <p css={pokemonOwnedCount}>
-          {count(id)} <span css={pokemonOwnedText}>Owned</span>
-        </p>
-        <div css={imageContentStyle}>
-          <img css={imageStyle} src={image} />
-        </div>
-      </div>
-    </Link>
+    <div css={itemStyle}>
+      <Link href={`/pokemon/${name}`}>
+        <a
+          css={css`
+            text-decoration: none;
+            cursor: pointer;
+          `}
+        >
+          <p css={pokemonItemName}>
+            {name_alias} / {name}
+          </p>
+          <p css={pokemonOwnedCount}>
+            {count(id)} <span css={pokemonOwnedText}>Owned</span>
+          </p>
+          <div css={imageContentStyle}>
+            <img css={imageStyle} src={image} />
+          </div>
+        </a>
+      </Link>
+      <button css={deleteStyle} onClick={() => remove(id, name_alias)}>
+        <img src="/delete.svg" css={deleteStyle} />
+      </button>
+    </div>
   );
 };
+
+const deleteStyle = css`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 25px;
+`;
 
 const itemStyle = css`
   background-color: ${color.primary};
