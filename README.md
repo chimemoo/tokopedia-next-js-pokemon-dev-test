@@ -1,6 +1,6 @@
-## Tokopedia Pokemon Dev Test
+# Tokopedia Pokemon Dev Test
 
-# Requirement
+## Requirement
 - Node JS v12.x.x
 
 ## Technology Used
