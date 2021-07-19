@@ -7,13 +7,6 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  return caches.match(event.request).then(function (response) {
-    return (
-      response ||
-      fetch(event.request).then(function (response) {
-        caches.put(event.request, response.clone());
-        return response;
-      })
-    );
-  });
+  const response = caches.match(event.request).then(match => match || fetch(event.request));
+  event.respondWith(response);
 });

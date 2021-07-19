@@ -1,11 +1,14 @@
 import { useLazyQuery } from '@apollo/client';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import { PokemonItem } from '../components/pokemon';
 import { Grid } from '../components/ui/Grid';
 import client from '../commons/graphql/client';
 import { GET_POKEMONS } from '../commons/graphql/query';
 import { useEffect, useState } from 'react';
-import Shimmer from '../components/ui/Shimmer';
 import SEO from '../components/commons/Seo';
+
+const Shimmer = dynamic(() => import('../components/ui/Shimmer'));
 
 export default function Home(props) {
   const [pokemons, setPokemons] = useState(props.pokemons);
@@ -49,6 +52,9 @@ export default function Home(props) {
 
   return (
     <div>
+      <Head>
+        <link rel="prefetch" href={pokemons[0].image} />
+      </Head>
       <SEO title="Pokemon dex" desc="Pokemon base of your pokemon info" />
       <Grid xs={2} sm={3} md={4} lg={6}>
         {pokemons && renderPokemonList}

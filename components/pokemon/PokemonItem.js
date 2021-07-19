@@ -96,12 +96,15 @@ const imageStyle = css`
   flex-direction: bottom;
   ${mq.xs} {
     width: 80px;
+    height: 80px;
   }
   ${mq.md} {
     width: 120px;
+    height: 120px;
   }
   ${mq.lg} {
     width: 140px;
+    height: 140px;
   }
 `;
 

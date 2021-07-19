@@ -2,6 +2,8 @@ import { useContext, useState } from 'react';
 import client from '../../commons/graphql/client';
 import { Grid, Column } from '../../components/ui/Grid';
 import { GET_POKEMON } from '../../commons/graphql/query';
+import { ToastContext } from '../../commons/context/toast.context';
+import { PokemonContext } from '../../commons/context/pokemon.context';
 import PokemonCarousel from '../../components/pokemon/PokemonCarousel';
 import Heading from '../../components/ui/Heading';
 import Block from '../../components/ui/Block';
@@ -10,11 +12,11 @@ import Col from '../../components/ui/Col';
 import Item from '../../components/ui/Item';
 import Error from '../../components/ui/Error';
 import * as Button from '../../components/ui/Button';
-import { ToastContext } from '../../commons/context/toast.context';
-import { PokemonContext } from '../../commons/context/pokemon.context';
-import Input from '../../components/ui/Input';
 import SEO from '../../components/commons/Seo';
 import useInput from '../../commons/hooks/use-input';
+import dynamic from 'next/dynamic';
+
+const Input = dynamic(() => import('../../components/ui/Input'));
 
 export default function Pokemon(props) {
   const {
