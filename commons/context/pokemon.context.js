@@ -26,21 +26,20 @@ export const PokemonProvider = ({ children }) => {
   }, [pokemons]);
 
   const save = (key, data) => {
-    let pokemonList = JSON.stringify(JSON.parse(pokemons));
-    const newPokemon = data;
+    let pokemonList = JSON.parse(JSON.stringify(pokemons));
     if (pokemonList[key]) {
       pokemonList[key].push(data);
     } else {
-      newPokemon[key] = [];
-      newPokemon[key].push(data);
+      pokemonList[key] = [];
+      pokemonList[key].push(data);
     }
     setPokemons(pokemonList);
   };
 
   const remove = (key, name) => {
-    let pokemonList = JSON.stringify(JSON.parse(pokemons));
+    let pokemonList = JSON.parse(JSON.stringify(pokemons));
     if (pokemonList[key]) {
-      const idx = pokemonList[key].findIndex(x => x.custom_name == name);
+      const idx = pokemonList[key].findIndex(x => x.name_alias == name);
       pokemonList[key].splice(idx, 1);
       if (pokemonList[key].length == 0) {
         delete pokemonList[key];
@@ -50,7 +49,7 @@ export const PokemonProvider = ({ children }) => {
   };
 
   const find = (key, name) => {
-    return pokemons[key]?.some(x => x.custom_name == name);
+    return pokemons[key]?.some(x => x.name_alias == name);
   };
 
   const count = key => {

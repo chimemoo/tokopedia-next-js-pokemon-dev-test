@@ -1,14 +1,19 @@
+import { ApolloProvider } from '@apollo/client';
 import { GlobalStyles } from '../commons/styles/global';
 import ContextProvider from '../commons/context';
+import Layout from '../components/commons/Layout';
+import client from '../commons/graphql/client';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ContextProvider>
-      <div>
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </div>
-    </ContextProvider>
+    <ApolloProvider client={client}>
+      <ContextProvider>
+        <Layout>
+          <GlobalStyles />
+          <Component {...pageProps} />
+        </Layout>
+      </ContextProvider>
+    </ApolloProvider>
   );
 }
 

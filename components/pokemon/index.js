@@ -1,5 +1,4 @@
-import PokemonItem from './PokemonItem';
-import PokemonList from './PokemonList';
+import { PokemonItem, PokemonOwnedItem } from './PokemonItem';
 import PokemonCarousel from './PokemonCarousel';
 
-export { PokemonItem, PokemonList, PokemonCarousel };
+export { PokemonItem, PokemonCarousel, PokemonOwnedItem };

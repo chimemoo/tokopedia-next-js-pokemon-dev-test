@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { Global } from '@emotion/react';
+import { color } from './constant';
 
 export const GlobalStyles = () => (
   <Global
@@ -17,6 +18,23 @@ export const GlobalStyles = () => (
       @font-face {
         font-family: 'font-light';
         src: url(/assets/fonts/Poppins/Poppins-Light.ttf);
+      }
+
+      body {
+        padding: 0;
+        margin: 0;
+        background-color: ${color.white};
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        padding: 0;
+        margin: 0;
       }
     `}
   />
